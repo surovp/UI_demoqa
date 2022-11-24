@@ -1,3 +1,4 @@
+import os
 from typing import Tuple
 from selene import have
 from selene.support.shared import browser
@@ -49,8 +50,9 @@ class RegistrationForm:
         select_checkbox("[for^=hobbies-checkbox]", hobby)
         return self
 
-    def download_picture(self):
-        pass
+    def download_file(self, file_name: str):
+        browser.element("#uploadPicture").send_keys(os.path.abspath("../resourses/" + file_name))
+        return self
 
     def fill_current_adress(self, adress):
         browser.element("#currentAddress").type(adress)

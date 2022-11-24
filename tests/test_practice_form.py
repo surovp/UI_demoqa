@@ -14,6 +14,7 @@ def test_practice_form():
         .set_date_birthday("25 January,1997")\
         .fill_subjects(("English","Economics"))\
         .set_hobbies("Sports")\
+        .download_file('file_test.jpg')\
         .fill_current_adress("Russia,Moscow")\
         .set_state("Haryana")\
         .set_city("Karnal")\
