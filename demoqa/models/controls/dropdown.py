@@ -1,6 +1,5 @@
-from selene import have
+from selene import have, Element
 from selene.support.shared import browser
-from selene import Element
 
 
 class DropDown:
