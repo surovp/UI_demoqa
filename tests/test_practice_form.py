@@ -1,7 +1,7 @@
 from demoqa.models import app
 
 
-def test_practice_form():
+def test_fill_full_form():
 
     app.registration_form.open_page("https://demoqa.com/automation-practice-form")
 
@@ -32,3 +32,59 @@ def test_practice_form():
         .check_data("Russia,Moscow")\
         .check_data("Haryana")\
         .check_data("Karnal")
+
+
+def test_fill_only_required_fields():
+    app.registration_form.open_page("https://demoqa.com/automation-practice-form")
+
+    app.registration_form\
+        .fill_first_name("Elena")\
+        .fill_last_name("Andreeva")\
+        .set_gender("Female")\
+        .fill_mobile_phone("9876543210")\
+        .submit()
+
+    app.registration_form\
+        .check_data("Elena")\
+        .check_data("Andreeva")\
+        .check_data("Female")\
+        .check_data("9876543210")\
+
+
+def test_submit_empty_form():
+    app.registration_form.open_page("https://demoqa.com/automation-practice-form")
+
+    app.registration_form.submit()
+
+    app.registration_form\
+        .check_validation_first_name()\
+        .check_validation_last_name()\
+        .check_validation_gender()\
+        .check_validation_phone_number()
+
+
+def test_validation_count_numbers_less_than_ten():
+    app.registration_form.open_page("https://demoqa.com/automation-practice-form")
+
+    app.registration_form\
+        .fill_first_name("Ivan")\
+        .fill_last_name("Ivanov")\
+        .set_gender("Male")\
+        .fill_mobile_phone("123456789")\
+        .submit()
+
+    app.registration_form.check_validation_phone_number()
+
+
+def test_validation_field_email():
+    app.registration_form.open_page("https://demoqa.com/automation-practice-form")
+
+    app.registration_form\
+        .fill_first_name("Andrew")\
+        .fill_last_name("Ivanov")\
+        .set_gender("Male")\
+        .fill_mobile_phone("123456789")\
+        .fill_email("user123.ru")\
+        .submit()
+
+    app.registration_form.check_validation_email()
