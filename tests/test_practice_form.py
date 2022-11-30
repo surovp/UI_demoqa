@@ -2,7 +2,7 @@ from demoqa.models import app
 import allure
 
 
-def test_fill_full_form():
+def test_fill_full_form(setup_browser):
 
     with allure.step("open browser"):
         app.registration_form.open_page("https://demoqa.com/automation-practice-form")
@@ -38,7 +38,7 @@ def test_fill_full_form():
             .check_data("Karnal")
 
 
-def test_fill_only_required_fields():
+def test_fill_only_required_fields(setup_browser):
 
     with allure.step("open browser"):
         app.registration_form.open_page("https://demoqa.com/automation-practice-form")
@@ -59,7 +59,7 @@ def test_fill_only_required_fields():
             .check_data("9876543210")\
 
 
-def test_submit_empty_form():
+def test_submit_empty_form(setup_browser):
 
     with allure.step("open browser"):
         app.registration_form.open_page("https://demoqa.com/automation-practice-form")
@@ -75,7 +75,7 @@ def test_submit_empty_form():
             .check_validation_phone_number()
 
 
-def test_validation_count_numbers_less_than_ten():
+def test_validation_count_numbers_less_than_ten(setup_browser):
 
     with allure.step("open browser"):
         app.registration_form.open_page("https://demoqa.com/automation-practice-form")
@@ -92,7 +92,7 @@ def test_validation_count_numbers_less_than_ten():
         app.registration_form.check_validation_phone_number()
 
 
-def test_validation_field_email():
+def test_validation_field_email(setup_browser):
 
     with allure.step("open browser"):
         app.registration_form.open_page("https://demoqa.com/automation-practice-form")

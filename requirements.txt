@@ -1,3 +1,4 @@
 pytest
 selene == 2.0.0b16
 allure-pytest
+selenium==4.6.1
