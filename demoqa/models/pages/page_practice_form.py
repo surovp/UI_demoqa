@@ -1,9 +1,10 @@
 import os
 from typing import Tuple
-from selene import have, be
+from selene import have
+from demoqa.models import close_ad
 from selene.support.shared import browser
 from demoqa.models.controls.radio_button import select_radiobutton_gender
-from demoqa.models.controls.datepicker import fill_date_of_birthday
+from demoqa.models.controls.datepicker import select_date_of_birthday
 from demoqa.models.controls.check_box import select_checkbox
 from demoqa.models.controls.dropdown import DropDown
 
@@ -13,6 +14,8 @@ class RegistrationForm:
     def open_page(self, url):
         browser.config.window_width, browser.config.window_height = 1920, 1020
         browser.open_url(url)
+        close_ad.remove_ads(amount=3, timeout=6)
+        close_ad.remove_ads(amount=1, timeout=2)
         return self
 
     def fill_first_name(self, first_name: str):
@@ -35,8 +38,8 @@ class RegistrationForm:
         browser.element('#userNumber').type(number_phone)
         return self
 
-    def set_date_birthday(self, date: str):
-        fill_date_of_birthday(date)
+    def set_date_birthday(self):
+        select_date_of_birthday()
         return self
 
     def fill_subjects(self, subjects: Tuple):

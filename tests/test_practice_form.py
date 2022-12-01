@@ -14,7 +14,7 @@ def test_fill_full_form(setup_browser):
             .fill_email("user123@test.com")\
             .set_gender("Other")\
             .fill_mobile_phone("7904111222")\
-            .set_date_birthday("25 January,1997")\
+            .set_date_birthday()\
             .fill_subjects(("English","Economics"))\
             .set_hobbies("Sports")\
             .download_file('file_test.jpg')\
