@@ -54,7 +54,7 @@ class RegistrationForm:
         return self
 
     def download_file(self, file_name: str):
-        browser.element('#uploadPicture').send_keys(os.path.abspath("../resourses/" + file_name))
+        browser.element('#uploadPicture').send_keys(os.path.abspath("resourses/" + file_name))
         return self
 
     def fill_current_adress(self, adress):
