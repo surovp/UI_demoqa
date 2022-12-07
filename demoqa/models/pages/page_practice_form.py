@@ -1,9 +1,10 @@
 import os
 from typing import Tuple
 from selene import have
+from demoqa.models import close_ad
 from selene.support.shared import browser
 from demoqa.models.controls.radio_button import select_radiobutton_gender
-from demoqa.models.controls.datepicker import fill_date_of_birthday
+from demoqa.models.controls.datepicker import select_date_of_birthday
 from demoqa.models.controls.check_box import select_checkbox
 from demoqa.models.controls.dropdown import DropDown
 
@@ -13,6 +14,8 @@ class RegistrationForm:
     def open_page(self, url):
         browser.config.window_width, browser.config.window_height = 1920, 1020
         browser.open_url(url)
+        close_ad.remove_ads(amount=3, timeout=6)
+        close_ad.remove_ads(amount=1, timeout=2)
         return self
 
     def fill_first_name(self, first_name: str):
@@ -35,27 +38,27 @@ class RegistrationForm:
         browser.element('#userNumber').type(number_phone)
         return self
 
-    def set_date_birthday(self, date: str):
-        fill_date_of_birthday(date)
+    def set_date_birthday(self):
+        select_date_of_birthday()
         return self
 
     def fill_subjects(self, subjects: Tuple):
         for subject in subjects:
-            browser.element("#subjectsInput").send_keys(subject).press_enter()
+            browser.element('#subjectsInput').send_keys(subject).press_enter()
         return self
     """
     При добавлении ещё хобби, добавить hoobie2 и hobbie3 в аргументы функции и вызвать select_checkbox для них
     """
     def set_hobbies(self, hobby: str):
-        select_checkbox("[for^=hobbies-checkbox]", hobby)
+        select_checkbox('[for^=hobbies-checkbox]', hobby)
         return self
 
     def download_file(self, file_name: str):
-        browser.element("#uploadPicture").send_keys(os.path.abspath("../resourses/" + file_name))
+        browser.element('#uploadPicture').send_keys(os.path.abspath("resourses/" + file_name))
         return self
 
     def fill_current_adress(self, adress):
-        browser.element("#currentAddress").type(adress)
+        browser.element('#currentAddress').type(adress)
         return self
 
     def set_state(self, state):
@@ -73,5 +76,30 @@ class RegistrationForm:
         return self
 
     def check_data(self, value):
-        browser.element(".table-responsive").should(have.text(value))
+        browser.element('.table-responsive').should(have.text(value))
+        return self
+
+    def check_validation_first_name(self):
+        browser.element('#firstName')\
+            .should(have.css_property('border-color', value='rgb(220, 53, 69)'))
+        return self
+
+    def check_validation_last_name(self):
+        browser.element('#lastName')\
+            .should(have.css_property('border-color', value='rgb(220, 53, 69)'))
+        return self
+
+    def check_validation_gender(self):
+        browser.element('[for^="gender-radio"]')\
+            .should(have.css_property('border-color', value='rgb(220, 53, 69)'))
+        return self
+
+    def check_validation_phone_number(self):
+        browser.element('#userNumber')\
+            .should(have.css_property('border-color', value='rgb(220, 53, 69)'))
+        return self
+
+    def check_validation_email(self):
+        browser.element('#userEmail')\
+            .should(have.css_property('border-color', value='rgb(220, 53, 69)'))
         return self
