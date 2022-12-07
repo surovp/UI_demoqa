@@ -15,6 +15,5 @@
   <code><img width="5%" title="Allure TestOps" src="images/logo_stacks/allure_testops.png"></code>
   <code><img width="5%" title="Jira" src="images/logo_stacks/jira.png"></code>
   <code><img width="5%" title="Telegram" src="images/logo_stacks/tg.png"></code>
-  <code><img width="5%" title="Slack" src="images/logo_stacks/slack.png"></code>
 </p>
 
