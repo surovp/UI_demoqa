@@ -1,5 +1,7 @@
 ## Проект UI автотестов demoqa.com
 
+<!-- Технологии -->
+
 ### Используемые технологии
 <p  align="center">
   <code><img width="5%" title="Pycharm" src="images/logo_stacks/pycharm.png"></code>
@@ -17,6 +19,9 @@
   <code><img width="5%" title="Telegram" src="images/logo_stacks/tg.png"></code>
 </p>
 
+
+<!-- Тест кейсы -->
+
 ### Что проверяем
 * Отправка формы и проверка данных всей заполненной формы
 * Отправка формы и проверка данных только с заполнением главных полей
@@ -24,13 +29,23 @@
 * Валидация поля номера телефона
 * Валидация поля Email
 
-### Запуск проекта в jenkins
+
+<!-- Jenkins -->
+
+### <img width="3%" title="Jenkins" src="images/logo_stacks/jenkins.png"> Запуск проекта в jenkins
+
+### [Job](https://jenkins.autotests.cloud/job/UI_demoqa_qa_guru_python_2/)
+
 ##### <img width="2%" title="Jenkins" src="images/logo_stacks/jenkins.png"> [Jenkins](https://jenkins.autotests.cloud/job/UI_demoqa_qa_guru_python_2/)
+
 ##### При нажатии на "Собрать сейчас" начнется сборка тестов и их прохождение, через виртуальную машину в Selenide.
 ![This is an image](images/screenshots/jenkins.png)
 
 
-### Allure report
+<!-- Allure report -->
+
+### <img width="3%" title="Allure Report" src="images/logo_stacks/allure_report.png"> Allure report
+
 ##### После прохождения тестов, результаты можно посмотреть в Allure отчете, где так же содержится ссылка на Jenkins
 ![This is an image](images/screenshots/allure_dashboard.png)
 
@@ -44,7 +59,12 @@
 ![This is an image](images/screenshots/tests_ui.gif)
 
 
-### Интеграция с Allure TestOps
+<!-- Allure TestOps -->
+
+### <img width="3%" title="Allure TestOps" src="images/logo_stacks/allure_testops.png"> Интеграция с Allure TestOps
+
+### [Dashboard](https://allure.autotests.cloud/project/1720/launches)
+
 ##### Так же вся отчетность сохраняется в Allure TestOps, где строятся аналогичные графики.
 ![This is an image](images/screenshots/allure_testops_dashboard.png)
 
@@ -57,13 +77,17 @@
 ![This is an image](images/screenshots/allure_testops_suites.png)
 
 
-### Интеграция с Jira
+<!-- Jira -->
+
+### <img width="3%" title="Jira" src="images/logo_stacks/jira.png"> Интеграция с Jira
 ##### Настроив через Allure TestOps интеграцию с Jira, в тикет можно пробросить результат прохождение тестов и список тест-кейсов из Allure
 
 ![This is an image](images/screenshots/jira.png)
 
 
-### Интеграция с Telegram
+<!-- Telegram -->
+
+### <img width="3%" title="Telegram" src="images/logo_stacks/tg.png"> Интеграция с Telegram
 ##### После прохождения тестов, в Telegram bot приходит сообщение с графиком и небольшой информацией о тестах.
 
 ![This is an image](images/screenshots/tg_bot.png)
